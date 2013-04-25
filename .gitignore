@@ -1,0 +1,7 @@
+.*.swp
+*.egg
+*.egg-info
+*.pyc
+/doc/build/*
+/build/*
+/.tox

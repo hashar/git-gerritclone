@@ -1,0 +1,13 @@
+[DEFAULT]
+base_path: ~/projects
+protocol: ssh
+user: hashar
+port: 29418
+path: /
+remotename: gerrit
+
+[wikimedia]
+host: gerrit.wikimedia.org
+
+[openstack]
+host: review.openstack.org

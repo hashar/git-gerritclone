@@ -1,0 +1,10 @@
+GIT-GERRITCLONE v0.1 - Python wrapper to
+easily clone Gerrit hosted repositories using
+conventions. Has no specific module
+dependency and should run on most platforms.
+Run `python setup.py install` to install and
+if it lands in your PATH you can simply use
+'git gerritclone'.
+Hosted on github.com/hashar/git-gerritclone
+By Antoine "hashar" Musso
+License is GPLv2.0
