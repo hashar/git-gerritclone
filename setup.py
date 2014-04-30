@@ -12,7 +12,7 @@ setup(
     version='0.1',
     packages=find_packages(),
 
-    #scripts=['git-gerritclone'],
+    # scripts=['git-gerritclone'],
     entry_points={
         'console_scripts': [
             'gerritclone = gerritclone.cmd:main',
