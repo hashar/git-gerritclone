@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (c) 2013 Antoine Musso
 # Copyright (c) Wikimedia Foundation Inc.
@@ -8,7 +8,7 @@
 #
 
 import argparse
-import ConfigParser
+import configparser
 import logging
 import os
 import subprocess
@@ -18,7 +18,6 @@ default_conf_file = os.path.expanduser('~/.gerritclone.conf')
 default_conf = {
     'base_path': '~/projects',
     'protocol': 'ssh',
-    'user': None,
     'port': 29418,
     'path': '/',
     'remotename': 'origin',
@@ -38,7 +37,7 @@ def main():
     my_config['base_path'] = os.path.expanduser(my_config['base_path'])
     logger.debug("Config: %s" % my_config)
 
-    # Fetch URL parts. Note that defaults are handled by ConfigParser
+    # Fetch URL parts. Note that defaults are handled by configparser
     user_part = my_config.get('user')
     if user_part:
         user_part += '@'
@@ -73,7 +72,7 @@ def main():
     cmd = ['git', 'clone', '-o', my_config.get('remotename'),
            clone_url, dest_path]
     if options.dry_run:
-        print "Git command:\n%s" % ' '.join(cmd)
+        print("Git command:\n%s" % ' '.join(cmd))
         sys.exit(0)
 
     logger.debug("Spawning: %s" % cmd)
@@ -170,7 +169,7 @@ def confreader(options):
     logger = logging.getLogger(__name__)
     logger.debug("Proceeding configuration")
 
-    config = ConfigParser.ConfigParser(default_conf)
+    config = configparser.ConfigParser(default_conf)
 
     if not options.conf:
         logger.info('No configuration file, using build-in defaults')
@@ -193,6 +192,7 @@ def confreader(options):
                  (options.instance, options.conf))
 
     return dict(config.items(options.instance))
+
 
 if __name__ == '__main__':
     main()
